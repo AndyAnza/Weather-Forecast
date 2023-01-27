@@ -1,0 +1,35 @@
+:root {
+    --color-one:#0B0C10;
+    --color-two: #1F2833;
+    --color-three: #C5C6C7;
+    --color-four: #66FCF1;
+    --color-five: #45A29E;
+}
+
+.header{
+    background-color: var(--color-one);
+}
+
+body {
+    background-color: var(--color-two);
+}
+
+.sidebar {
+    background-color: var(--color-one);
+}
+#currentWeatherContainer, #searchBtn {
+    border-color: var(--color-four);
+}
+h1, h2, h3 {
+    color: var(--color-four)
+}
+
+h4 {
+    background-color: var(--color-one);
+    text-align: center;
+}
+
+button {
+    background-color: var(--color-five);
+    color:azure;
+}

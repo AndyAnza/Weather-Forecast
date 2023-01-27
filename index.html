@@ -5,9 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>| Weather-Forecast |</title>
-    <link rel="stylesheet" href="./assets/css/style.css"
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="path/to/dayjs/dayjs.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <header class="header flex flex-col h-32 text-white text-4xl text-center font-normal">
+        <h1 class="h-full">Weather <span class="text-white">Forecast</span></h1>
+    </header>
+
+
+    <div id="sidebarContainer" class="sidebar flex flex-col w-1/5 h-screen float-left">
+        <h2 class="text-2xl font-normal mx-8 my-2">Search for a City:</h2>
+        <input id="cityInput" placeholder="City Name" class="border-2 rounded border-black mx-8 my-2">
+        <button id="searchBtn" class="border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 mt-2 mb-4 rounded">Search</button>
+        <hr>
+        <button id="city1Btn" class=" border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 mt-4 mb-2 rounded"></button>
+        <button id="city2Btn" class=" border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 my-2 rounded"></button>
+        <button id="city3Btn" class=" border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 my-2 rounded"></button>
+        <button id="city4Btn" class=" border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 my-2 rounded"></button>
+        <button id="city5Btn" class=" border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 my-2 rounded"></button>
+        <button id="city6Btn" class=" border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 my-2 rounded"></button>
+        <button id="city7Btn" class=" border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 my-2 rounded"></button>
+        <button id="city8Btn" class=" border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 my-2 rounded"></button>
+    </div>
+    
+    <div id="dashboardContainer" class="flex flex-col w-4/5 h-screen float-right">
+        <div id="currentWeatherContainer" class="border-2 h-64 mx-6 my-6">
+            <h2 id="cityName">test<span id="currentDay"></span></h2>
+            <ul id="stats">
+                <li id="currentTemp">test</li>
+                <li id="currentWind">test</li>
+                <li id="currentHumidity">test</li>
+            </ul>
+        </div>
+
+        <h3 class="bg-gradient-to-r from-black text-xl font-normal py-2 pl-2 mx-6 my-6">5-Day Forecast:</h3>
+
+        <div id="fiveDayForecastContainer" class="flex flex-row justify-evenly mx-6 my-6">
+            
+                <div id="firstDayCont" class="grid bg-gradient-to-r from-cyan-500 to-blue-500 text-white box-content h-64 w-48 px-2 py-2 rounded">
+                    <h4 id="day" class="'px-2 py-2">test</h4>
+                    <img class="place-self-center bg-white rounded-full w-20 h-20 mt-2 mb-2">
+                    <ul>
+                        <li id="firstDayTemp" class="bg-gradient-to-r from-teal-600">test</li>
+                        <li id="firstDayWind" class="bg-gradient-to-r from-teal-600">test</li>
+                        <li id="firstDayHumidity" class="bg-gradient-to-r from-teal-600">test</li>
+                    </ul>
+                </div>
+            
+                <div id="secondDayCont" class="grid bg-gradient-to-r from-cyan-500 to-blue-500 text-white box-content h-64 w-48 px-2 py-2 rounded">
+                    <h4 id="day" class="'px-2 py-2">test</h4>
+                    <img class="place-self-center bg-white rounded-full w-20 h-20 mt-2 mb-2">
+                    <ul>
+                        <li id="secondDayTemp" class="bg-gradient-to-r from-teal-600">test</li>
+                        <li id="secondDayWind" class="bg-gradient-to-r from-teal-600">test</li>
+                        <li id="secondDayHumidity" class="bg-gradient-to-r from-teal-600">test</li>
+                    </ul>
+                </div>
+
+                <div id="thirdDayCont" class="grid bg-gradient-to-r from-cyan-500 to-blue-500 text-white box-content h-64 w-48 px-2 py-2 rounded">
+                    <h4 id="day" class="'px-2 py-2">test</h4>
+                    <img class="place-self-center bg-white rounded-full w-20 h-20 mt-2 mb-2">
+                    <ul>
+                        <li id="thirdDayTemp" class="bg-gradient-to-r from-teal-600">test</li>
+                        <li id="thirdDayWind" class="bg-gradient-to-r from-teal-600">test</li>
+                        <li id="thirdDayHumidity" class="bg-gradient-to-r from-teal-600">test</li>
+                    </ul>
+                </div>
+
+                <div id="fourthDayCont" class="grid bg-gradient-to-r from-cyan-500 to-blue-500 text-white box-content h-64 w-48 px-2 py-2 rounded">
+                    <h4 id="day" class="'px-2 py-2">test</h4>
+                    <img class="place-self-center bg-white rounded-full w-20 h-20 mt-2 mb-2">
+                    <ul>
+                        <li id="fourthDayTemp" class="bg-gradient-to-r from-teal-600">test</li>
+                        <li id="fourthDayWind" class="bg-gradient-to-r from-teal-600">test</li>
+                        <li id="fourthDayHumidity" class="bg-gradient-to-r from-teal-600">test</li>
+                    </ul>
+                </div>
+
+                <div id="fifthDayCont" class="grid bg-gradient-to-r from-cyan-500 to-blue-500 text-white box-content h-64 w-48 px-2 py-2 rounded">
+                    <h4 id="day" class="'px-2 py-2">test</h4>
+                    <img class="place-self-center bg-white rounded-full w-20 h-20 mt-2 mb-2">
+                    <ul>
+                        <li id="fifthDayTemp" class="bg-gradient-to-r from-teal-600">test</li>
+                        <li id="fifthDayWind" class="bg-gradient-to-r from-teal-600">test</li>
+                        <li id="fifthDayHumidity" class="bg-gradient-to-r from-teal-600">test</li>
+                    </ul>
+                </div>
+            </div>
+
+    </div>
+    
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
