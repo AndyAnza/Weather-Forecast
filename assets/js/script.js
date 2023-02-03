@@ -1,15 +1,21 @@
+
+
+
 function searchCity(){
 let cityInputEle = document.getElementById("cityInput").value;
 let city = cityInputEle.toString();
 
+
+let btn = document.createElement("button");
+btn.innerHTML = city;
+btn.class = "border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 mt-4 mb-2 rounded"
+sidebarContainer.appendChild(btn)
+// btn.onclick
+
 fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=16a1bbc216267d941f85d26c9ef22dab&units=metric`)
   .then(response => response.json())
   .then(data => {
-  // console.log(data);
-  // console.log(data.name);
-  // console.log(data.main.temp)
-  // console.log(data.wind.speed)
-  // console.log(data.main.humidity)
+  console.log(data);
 
   localStorage.setItem('City', data.name);
   localStorage.setItem('Temperature', data.main.temp);
@@ -27,6 +33,7 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=16a1bbc21
   let humidity = localStorage.getItem('Humidity');
 
   document.getElementById("cityName").textContent = cityName;
+  document.getElementById("currentDay").textContent = dayjs(data.dt).format("MMMM D, YYYY");
   document.getElementById("currentTemp").textContent = temp + " °C" ;
   document.getElementById("currentWind").textContent = wind + " MPH";
   document.getElementById("currentHumidity").textContent = humidity + " %";
@@ -43,10 +50,9 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=16a1bbc2
     console.log(forecast.list[6].wind.speed)
     console.log(forecast.list[6].main.humidity)
 
-
 //////1-Day Forecast
 
-    localStorage.setItem('Day 1', JSON.stringify(forecast.list[6].dt))
+    localStorage.setItem('Day 1', dayjs(forecast.list[6].dt_txt).format("MMMM D, YYYY HH:mm"))
     localStorage.setItem('D1 Temp', forecast.list[6].main.temp)
     localStorage.setItem('D1 Wind', forecast.list[6].wind.speed)
     localStorage.setItem('D1 Humidity', forecast.list[6].main.humidity)
@@ -67,10 +73,10 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=16a1bbc2
 
 //////2-Day Forecast 
 
-localStorage.setItem('Day 2', JSON.stringify(forecast.list[14].dt * 1000))
-localStorage.setItem('D2 Temp', forecast.list[14].main.temp)
-localStorage.setItem('D2 Wind', forecast.list[14].wind.speed)
-localStorage.setItem('D2 Humidity', forecast.list[14].main.humidity)
+localStorage.setItem('Day 2', dayjs(forecast.list[14].dt_txt).format("MMMM D, YYYY HH:mm"));
+localStorage.setItem('D2 Temp', forecast.list[14].main.temp);
+localStorage.setItem('D2 Wind', forecast.list[14].wind.speed);
+localStorage.setItem('D2 Humidity', forecast.list[14].main.humidity);
 
 let day2 = localStorage.getItem('Day 2');
 let temp2 = localStorage.getItem('D2 Temp');
@@ -88,7 +94,7 @@ document.getElementById("secondDayHumidity").textContent = humidity2 + " %";
 
 //////3-Day Forecast 
 
-localStorage.setItem('Day 3', JSON.stringify(forecast.list[22].dt * 1000))
+localStorage.setItem('Day 3', dayjs(forecast.list[22].dt_txt).format("MMMM D, YYYY HH:mm"))
 localStorage.setItem('D3 Temp', forecast.list[22].main.temp)
 localStorage.setItem('D3 Wind', forecast.list[22].wind.speed)
 localStorage.setItem('D3 Humidity', forecast.list[22].main.humidity)
@@ -109,7 +115,7 @@ document.getElementById("thirdDayHumidity").textContent = humidity3 + " %";
 
 //////4-Day Forecast 
 
-localStorage.setItem('Day 4', JSON.stringify(forecast.list[30].dt * 1000))
+localStorage.setItem('Day 4', dayjs(forecast.list[30].dt_txt).format("MMMM D, YYYY HH:mm"))
 localStorage.setItem('D4 Temp', forecast.list[30].main.temp)
 localStorage.setItem('D4 Wind', forecast.list[30].wind.speed)
 localStorage.setItem('D4 Humidity', forecast.list[30].main.humidity)
@@ -130,7 +136,7 @@ document.getElementById("fourthDayHumidity").textContent = humidity4 + " %";
 
 //////5-Day Forecast 
 
-localStorage.setItem('Day 5', JSON.stringify(forecast.list[38].dt * 1000))
+localStorage.setItem('Day 5', dayjs(forecast.list[38].dt_txt).format("MMMM D, YYYY HH:mm"))
 localStorage.setItem('D5 Temp', forecast.list[38].main.temp)
 localStorage.setItem('D5 Wind', forecast.list[38].wind.speed)
 localStorage.setItem('D5 Humidity', forecast.list[38].main.humidity)
@@ -154,11 +160,3 @@ document.getElementById("fifthDayHumidity").textContent = humidity5 + " %";
 
 searchBtn.addEventListener("click", searchCity)
 
-
-
-//LOCAL STORAGE INFO WILL PREVAIL BY REFRESHING THE SITE
-
-// document.getElementById("cityName").textContent = cityName;
-// document.getElementById("currentTemp").textContent = temp + " °C" ;
-// document.getElementById("currentWind").textContent = wind + " MPH";
-// document.getElementById("currentHumidity").textContent = humidity + " %";
