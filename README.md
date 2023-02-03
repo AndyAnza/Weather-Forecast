@@ -15,4 +15,5 @@ https://andyanza.github.io/Weather-Forecast/
 - Tailwind
 - Openweathermap API
 ## Screenshot
+![alt text](https://github.com/AndyAnza/Weather-Forecast/blob/ead2c817d61631f82cc910ec5b8820abade4be62/assets/images/andyanza.github.io_Weather-Forecast_%20(3).png)
 
