@@ -6,7 +6,7 @@
     --color-five: #45A29E;
 }
 
-.header{
+header ,.sidebar, .fiveDayCont, .cityContainer {
     background-color: var(--color-one);
 }
 
@@ -14,9 +14,7 @@ body {
     background-color: var(--color-two);
 }
 
-.sidebar {
-    background-color: var(--color-one);
-}
+
 #currentWeatherContainer, #searchBtn {
     border-color: var(--color-four);
 }
@@ -24,12 +22,33 @@ h1, h2, h3 {
     color: var(--color-four)
 }
 
+button {
+    color:azure;
+}
+
+#currentWeatherContainer p, #currentWeatherContainer li {
+    color:var(--color-three);
+    font-size:x-large
+}
+
+span {
+    color:var(--color-four)
+}
+
 h4 {
     background-color: var(--color-one);
     text-align: center;
+    color: white;
+    font-size: large;
+    font-weight: 500;
 }
 
-button {
-    background-color: var(--color-five);
-    color:azure;
+#fiveDayForecastContainer li{
+    color: var(--color-three);
+    font-size: medium;
+    font-weight: 400;
+}
+
+#fiveDayForecastContainer span {
+    font-size: large;
 }

@@ -1,16 +1,18 @@
+let cityInputEle = document.getElementById("cityInput");
+// let city = cityInputEle.toString();
 
+function sendCity(event) {
+  event.preventDefault();
+  console.log(cityInputEle.value);
+  searchCity(cityInputEle.value);
+}
 
+function searchCity(city){
 
-function searchCity(){
-let cityInputEle = document.getElementById("cityInput").value;
-let city = cityInputEle.toString();
-
-
-let btn = document.createElement("button");
-btn.innerHTML = city;
-btn.class = "border-2 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-8 mt-4 mb-2 rounded"
-sidebarContainer.appendChild(btn)
-// btn.onclick
+  let btn = document.createElement("button");
+  btn.innerHTML = city;
+  btn.classList = "border-2 hover:bg-slate-700 text-white font-bold py-2 px-4 mx-8 mt-4 mb-2 rounded"
+  sidebarContainer.appendChild(btn)
 
 fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=16a1bbc216267d941f85d26c9ef22dab&units=metric`)
   .then(response => response.json())
@@ -43,6 +45,7 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=16a1bbc21
 fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=16a1bbc216267d941f85d26c9ef22dab&units=metric`)
   .then(response => response.json())
   .then(forecast => {
+
     console.log(forecast);
     console.log(forecast.list[6].main.dt_txt)
     console.log(forecast.list[6].weather[0].icon)
@@ -158,5 +161,5 @@ document.getElementById("fifthDayHumidity").textContent = humidity5 + " %";
 });
 };
 
-searchBtn.addEventListener("click", searchCity)
+searchBtn.addEventListener("click", sendCity)
 
