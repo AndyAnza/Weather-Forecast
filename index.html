@@ -18,12 +18,14 @@
 
     <div id="sidebarContainer" class="sidebar flex flex-col w-1/5 h-screen float-left">
         <h2 class="text-2xl font-normal mx-8 my-2">Search for a City:</h2>
-        <input id="cityInput"  type="text" placeholder="City Name" class="border-2 rounded border-black mx-8 my-2">
-        <button id="searchBtn" class="border-2 hover:bg-slate-700 text-white font-bold py-2 px-4 mx-8 mt-2 mb-4 rounded">Search</button>
+            <input id="cityInput"  type="text" placeholder="City Name" class="border-2 rounded border-black mx-8 my-2" required>
+            <button id="searchBtn" type='submit' class="border-2 hover:bg-slate-700 text-white font-bold py-2 px-4 mx-8 mt-2 mb-4 rounded">Search</button>
+
+
         <hr>
     </div>
     
-    <div id="dashboardContainer" class="flex flex-col w-4/5 h-screen float-right">
+    <main id="dashboardContainer" class="flex flex-col w-4/5 h-screen float-right">
         <div id="currentWeatherContainer" class="border-2 h-64 mx-6 my-6 flex flex-col-2">
             <div class="w-2/4 px-6 py-6 cityContainer">
                 <h2 id="cityName" class=" text-5xl">City</h2>
@@ -44,60 +46,9 @@
 
         <h3 class="bg-gradient-to-r from-black text-xl font-normal py-2 pl-2 mx-6 my-6">5-Day Forecast:</h3>
 
-        <div id="fiveDayForecastContainer" class="flex flex-row justify-evenly mx-6 my-6">
-            
-                <div id="firstDayCont" class="grid 0 box-content h-64 w-48 px-2 py-2 rounded fiveDayCont">
-                    <h4 id="day1" class="'px-2 py-2 m-auto"></h4>
-                    <img id="img1" class="place-self-center" src="">
-                    <ul>
-                        <li class="bg-gradient-to-r from-teal-600">Temp: <span id="firstDayTemp"></span></li>
-                        <li class="bg-gradient-to-r from-teal-600">Wind: <span id="firstDayWind"></span></li>
-                        <li class="bg-gradient-to-r from-teal-600">Humidity: <span id="firstDayHumidity"></span></li>
-                    </ul>
-                </div>
-            
-                <div id="secondDayCont" class="grid box-content h-64 w-48 px-2 py-2 rounded fiveDayCont">
-                    <h4 id="day2" class="'px-2 py-2 m-auto"></h4>
-                    <img id="img2" class="place-self-center" src="">
-                    <ul>
-                        <li class="bg-gradient-to-r from-teal-600">Temp: <span id="secondDayTemp"></span></li>
-                        <li class="bg-gradient-to-r from-teal-600">Wind: <span  id="secondDayWind"></span></li>
-                        <li class="bg-gradient-to-r from-teal-600">Humidity: <span id="secondDayHumidity"></span></li>
-                    </ul>
-                </div>
+        <section id="fiveDayForecastContainer" class="flex flex-row justify-evenly mx-6 my-6"></section>
 
-                <div id="thirdDayCont" class="grid box-content h-64 w-48 px-2 py-2 rounded fiveDayCont">
-                    <h4 id="day3" class="'px-2 py-2 m-auto"></h4>
-                    <img id="img3" class="place-self-center" src="">
-                    <ul>
-                        <li class="bg-gradient-to-r from-teal-600">Temp: <span id="thirdDayTemp"></span></li>
-                        <li class="bg-gradient-to-r from-teal-600">Wind: <span id="thirdDayWind"></span></li>
-                        <li class="bg-gradient-to-r from-teal-600">Humidity: <span id="thirdDayHumidity"></span></li>
-                    </ul>
-                </div>
-
-                <div id="fourthDayCont" class="grid box-content h-64 w-48 px-2 py-2 rounded fiveDayCont">
-                    <h4 id="day4" class="'px-2 py-2 m-auto"></h4>
-                    <img id="img4" class="place-self-center" src="">
-                    <ul>
-                        <li class="bg-gradient-to-r from-teal-600">Temp: <span id="fourthDayTemp"></span></li>
-                        <li class="bg-gradient-to-r from-teal-600">Wind: <span id="fourthDayWind"></span></li>
-                        <li class="bg-gradient-to-r from-teal-600">Humidity: <span id="fourthDayHumidity"></span></li>
-                    </ul>
-                </div>
-
-                <div id="fifthDayCont" class="grid box-content h-64 w-48 px-2 py-2 rounded fiveDayCont">
-                    <h4 id="day5" class="'px-2 py-2 m-auto"></h4>
-                    <img id="img5" class="place-self-center" src="">
-                    <ul>
-                        <li class="bg-gradient-to-r from-teal-600">Temp: <span id="fifthDayTemp"></span></li>
-                        <li class="bg-gradient-to-r from-teal-600">Wind: <span id="fifthDayWind"></span></li>
-                        <li class="bg-gradient-to-r from-teal-600">Humidity: <span id="fifthDayHumidity"></span></li>
-                    </ul>
-                </div>
-            </div>
-
-    </div>
+    </main>
     
     <script src="./assets/js/script.js"></script>
 </body>
